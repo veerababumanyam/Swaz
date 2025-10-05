@@ -1,0 +1,33 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* For consistent scrollbar styling across browsers */
+/* Firefox */
+* {
+  scrollbar-width: thin;
+  scrollbar-color: #457B9D #F8F9FA;
+}
+.dark * {
+  scrollbar-color: #457B9D #1B1B1B;
+}
+
+/* Chrome, Edge, and Safari */
+*::-webkit-scrollbar {
+  width: 8px;
+  height: 8px;
+}
+*::-webkit-scrollbar-track {
+  background: #F8F9FA;
+}
+.dark *::-webkit-scrollbar-track {
+  background: #1B1B1B;
+}
+*::-webkit-scrollbar-thumb {
+  background-color: #457B9D;
+  border-radius: 10px;
+  border: 2px solid #F8F9FA;
+}
+.dark *::-webkit-scrollbar-thumb {
+  border-color: #1B1B1B;
+}

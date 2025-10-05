@@ -1,0 +1,14 @@
+{
+  "mcpServers": {
+    "playwright": {
+      "command": "npx",
+      "args": ["@playwright/mcp@latest"],
+      "cwd": "/Users/haarinimanyam/Desktop/swaz-data-recovery-labs"
+    },
+    "context7": {
+      "command": "npx",
+      "args": ["@upstash/context7-mcp@latest"],
+      "cwd": "/Users/haarinimanyam/Desktop/swaz-data-recovery-labs"
+    }
+  }
+}

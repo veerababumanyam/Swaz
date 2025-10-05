@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Chat Agent Test</title>
+    <meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self' 'unsafe-inline' https://aistudiocdn.com; style-src 'self' 'unsafe-inline'; img-src 'self' data: https://api.qrserver.com; connect-src 'self' ws: wss: https://generativelanguage.googleapis.com; worker-src 'self' blob:; frame-ancestors 'none'; object-src 'none'; base-uri 'self'; form-action 'self';">
+    <script type="importmap">
+    {
+      "imports": {
+        "react/": "https://aistudiocdn.com/react@^19.2.0/",
+        "react": "https://aistudiocdn.com/react@^19.2.0",
+        "react-dom/": "https://aistudiocdn.com/react-dom@^19.2.0/",
+        "@google/genai": "https://aistudiocdn.com/@google/genai@^1.22.0"
+      }
+    }
+    </script>
+</head>
+<body>
+    <div id="root"></div>
+    <div id="test-results"></div>
+    
+    <script type="module">
+        import { GoogleGenAI } from '@google/genai';
+        
+        const API_KEY = 'AIzaSyCbyGCWlBo7FgN2bshNhWi8PHOmK1484qE';
+        const ai = new GoogleGenAI({ apiKey: API_KEY });
+        
+        async function testChat() {
+            try {
+                const chat = ai.chats.create({
+                    model: 'gemini-2.5-flash',
+                    config: {
+                        systemInstruction: 'You are a helpful assistant for Swaz Data Recovery Labs.'
+                    }
+                });
+                
+                const response = await chat.sendMessage('Hello, this is a test message. Please respond with: CSP Test Successful!');
+                
+                document.getElementById('test-results').innerHTML = `
+                    <h2>Test Results:</h2>
+                    <p><strong>Status:</strong> ✅ SUCCESS</p>
+                    <p><strong>Response:</strong> ${response.response.text()}</p>
+                    <p><strong>API Key:</strong> Working</p>
+                    <p><strong>CSP:</strong> Fixed</p>
+                `;
+                
+            } catch (error) {
+                document.getElementById('test-results').innerHTML = `
+                    <h2>Test Results:</h2>
+                    <p><strong>Status:</strong> ❌ FAILED</p>
+                    <p><strong>Error:</strong> ${error.message}</p>
+                    <p><strong>Details:</strong> ${error.stack}</p>
+                `;
+            }
+        }
+        
+        // Test immediately
+        testChat();
+    </script>
+</body>
+</html>

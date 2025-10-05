@@ -1,0 +1,159 @@
+<testsuites id="" name="" tests="5" failures="3" skipped="0" errors="0" time="17.112726">
+<testsuite name="05-realistic-connectivity-test.spec.ts" timestamp="2025-10-05T04:46:49.245Z" hostname="chromium" tests="5" failures="3" skipped="0" time="53.197" errors="0">
+<testcase name="Swaz Data Recovery - Realistic Sender/Receiver Connectivity Test › should test basic sender and receiver connectivity" classname="05-realistic-connectivity-test.spec.ts" time="15.029">
+<failure message="05-realistic-connectivity-test.spec.ts:5:3 should test basic sender and receiver connectivity" type="FAILURE">
+<![CDATA[  [chromium] › 05-realistic-connectivity-test.spec.ts:5:3 › Swaz Data Recovery - Realistic Sender/Receiver Connectivity Test › should test basic sender and receiver connectivity 
+
+    TimeoutError: locator.click: Timeout 10000ms exceeded.
+    Call log:
+      - waiting for locator('button:has-text("Join & Receive")')
+        - locator resolved to <button disabled class="mt-4 w-full px-6 py-3 bg-accent text-white font-bold rounded-lg shadow-md hover:bg-opacity-80 transition-all active:scale-95 disabled:opacity-50 disabled:cursor-not-allowed focus:outline-none focus-visible:ring-2 focus-visible:ring-accent">Join & Receive</button>
+      - attempting click action
+        2 × waiting for element to be visible, enabled and stable
+          - element is not enabled
+        - retrying click action
+        - waiting 20ms
+        2 × waiting for element to be visible, enabled and stable
+          - element is not enabled
+        - retrying click action
+          - waiting 100ms
+        19 × waiting for element to be visible, enabled and stable
+           - element is not enabled
+         - retrying click action
+           - waiting 500ms
+
+
+      33 |       const startReceivingButton = receiverPage.locator('button:has-text("Join & Receive")');
+      34 |       await expect(startReceivingButton).toBeVisible();
+    > 35 |       await startReceivingButton.click();
+         |                                  ^
+      36 |       
+      37 |       console.log('✅ Receiver setup initiated');
+      38 |       await receiverPage.waitForTimeout(2000);
+        at /Users/haarinimanyam/Desktop/swaz-data-recovery-labs/tests/05-realistic-connectivity-test.spec.ts:35:34
+
+    attachment #1: screenshot (image/png) ──────────────────────────────────────────────────────────
+    ../test-results/05-realistic-connectivity--dfc1c-r-and-receiver-connectivity-chromium/test-failed-1.png
+    ────────────────────────────────────────────────────────────────────────────────────────────────
+
+    attachment #2: screenshot (image/png) ──────────────────────────────────────────────────────────
+    ../test-results/05-realistic-connectivity--dfc1c-r-and-receiver-connectivity-chromium/test-failed-2.png
+    ────────────────────────────────────────────────────────────────────────────────────────────────
+]]>
+</failure>
+<system-out>
+<![CDATA[🚀 Testing basic sender and receiver connectivity...
+✅ Sender setup initiated
+
+[[ATTACHMENT|test-results/05-realistic-connectivity--dfc1c-r-and-receiver-connectivity-chromium/test-failed-1.png]]
+
+[[ATTACHMENT|test-results/05-realistic-connectivity--dfc1c-r-and-receiver-connectivity-chromium/test-failed-2.png]]
+]]>
+</system-out>
+</testcase>
+<testcase name="Swaz Data Recovery - Realistic Sender/Receiver Connectivity Test › should test WebSocket connections" classname="05-realistic-connectivity-test.spec.ts" time="15.084">
+<failure message="05-realistic-connectivity-test.spec.ts:82:3 should test WebSocket connections" type="FAILURE">
+<![CDATA[  [chromium] › 05-realistic-connectivity-test.spec.ts:82:3 › Swaz Data Recovery - Realistic Sender/Receiver Connectivity Test › should test WebSocket connections 
+
+    TimeoutError: page.click: Timeout 10000ms exceeded.
+    Call log:
+      - waiting for locator('button:has-text("Join & Receive")')
+        - locator resolved to <button disabled class="mt-4 w-full px-6 py-3 bg-accent text-white font-bold rounded-lg shadow-md hover:bg-opacity-80 transition-all active:scale-95 disabled:opacity-50 disabled:cursor-not-allowed focus:outline-none focus-visible:ring-2 focus-visible:ring-accent">Join & Receive</button>
+      - attempting click action
+        2 × waiting for element to be visible, enabled and stable
+          - element is not enabled
+        - retrying click action
+        - waiting 20ms
+        2 × waiting for element to be visible, enabled and stable
+          - element is not enabled
+        - retrying click action
+          - waiting 100ms
+        19 × waiting for element to be visible, enabled and stable
+           - element is not enabled
+         - retrying click action
+           - waiting 500ms
+
+
+      103 |       await receiverPage.goto('http://localhost:5174/');
+      104 |       await receiverPage.waitForLoadState('networkidle');
+    > 105 |       await receiverPage.click('button:has-text("Join & Receive")');
+          |                          ^
+      106 |       await receiverPage.waitForTimeout(2000);
+      107 |
+      108 |       // Wait for WebSocket connections (with timeout)
+        at /Users/haarinimanyam/Desktop/swaz-data-recovery-labs/tests/05-realistic-connectivity-test.spec.ts:105:26
+
+    attachment #1: screenshot (image/png) ──────────────────────────────────────────────────────────
+    ../test-results/05-realistic-connectivity--3b449--test-WebSocket-connections-chromium/test-failed-1.png
+    ────────────────────────────────────────────────────────────────────────────────────────────────
+
+    attachment #2: screenshot (image/png) ──────────────────────────────────────────────────────────
+    ../test-results/05-realistic-connectivity--3b449--test-WebSocket-connections-chromium/test-failed-2.png
+    ────────────────────────────────────────────────────────────────────────────────────────────────
+]]>
+</failure>
+<system-out>
+<![CDATA[🔌 Testing WebSocket connections...
+
+[[ATTACHMENT|test-results/05-realistic-connectivity--3b449--test-WebSocket-connections-chromium/test-failed-1.png]]
+
+[[ATTACHMENT|test-results/05-realistic-connectivity--3b449--test-WebSocket-connections-chromium/test-failed-2.png]]
+]]>
+</system-out>
+</testcase>
+<testcase name="Swaz Data Recovery - Realistic Sender/Receiver Connectivity Test › should test file upload functionality" classname="05-realistic-connectivity-test.spec.ts" time="5.034">
+<system-out>
+<![CDATA[📁 Testing file upload functionality...
+📎 File input elements found: 1
+✅ Test file uploaded successfully
+📋 File list elements found: 46
+✅ File upload test completed
+]]>
+</system-out>
+</testcase>
+<testcase name="Swaz Data Recovery - Realistic Sender/Receiver Connectivity Test › should test UI navigation and responsiveness" classname="05-realistic-connectivity-test.spec.ts" time="15.936">
+<failure message="05-realistic-connectivity-test.spec.ts:205:3 should test UI navigation and responsiveness" type="FAILURE">
+<![CDATA[  [chromium] › 05-realistic-connectivity-test.spec.ts:205:3 › Swaz Data Recovery - Realistic Sender/Receiver Connectivity Test › should test UI navigation and responsiveness 
+
+    TimeoutError: locator.click: Timeout 10000ms exceeded.
+    Call log:
+      - waiting for locator('button:has-text("Join & Receive")')
+
+
+      257 |       
+      258 |       // Test navigation to receiver mode
+    > 259 |       await startReceivingButton.click();
+          |                                  ^
+      260 |       await page.waitForTimeout(2000);
+      261 |       
+      262 |       // Check if we're in receiver mode
+        at /Users/haarinimanyam/Desktop/swaz-data-recovery-labs/tests/05-realistic-connectivity-test.spec.ts:259:34
+
+    attachment #1: screenshot (image/png) ──────────────────────────────────────────────────────────
+    ../test-results/05-realistic-connectivity--2a2d5-vigation-and-responsiveness-chromium/test-failed-1.png
+    ────────────────────────────────────────────────────────────────────────────────────────────────
+]]>
+</failure>
+<system-out>
+<![CDATA[🎨 Testing UI navigation and responsiveness...
+✅ Desktop viewport test passed
+✅ Tablet viewport test passed
+✅ Mobile viewport test passed
+📤 Sender-specific elements found: 47
+
+[[ATTACHMENT|test-results/05-realistic-connectivity--2a2d5-vigation-and-responsiveness-chromium/test-failed-1.png]]
+]]>
+</system-out>
+</testcase>
+<testcase name="Swaz Data Recovery - Realistic Sender/Receiver Connectivity Test › should test application performance and loading" classname="05-realistic-connectivity-test.spec.ts" time="2.114">
+<system-out>
+<![CDATA[⚡ Testing application performance...
+📊 Page load time: 812ms
+📊 Button response time: 1057ms
+📊 Memory usage: { used: [32m'34MB'[39m, total: [32m'38MB'[39m, limit: [32m'2144MB'[39m }
+✅ Performance test completed
+]]>
+</system-out>
+</testcase>
+</testsuite>
+</testsuites>
